@@ -124,6 +124,7 @@ header h1 {
   .topnav .search-container {
     float: none;
   }
+
   .topnav a, .topnav input[type=text], .topnav .search-container button {
     float: none;
     display: block;
@@ -143,6 +144,7 @@ header h1 {
   margin: auto;
   padding: 70px;
   background-color: rgb(255, 255, 204, 0.8);
+
 }
 
 .row-menu {
@@ -287,7 +289,7 @@ ul {
 
 /* Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .column .footer {
+  .column {
     width: 100%;
   }
 }
@@ -311,8 +313,3 @@ ul {
 .fa:hover {
   color: #ffffcc;
   text-shadow: 0 0 5px #ffffff;
-
-}
-
-
-
