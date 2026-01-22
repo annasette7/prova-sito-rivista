@@ -243,21 +243,24 @@ header h1 {
   color: #ffffcc;
   text-shadow: 0 0 5px #ffffff;
 }
-/* Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column-menu {
-    width: 100%;
-    float: none;
-  }
-}
 
-/* Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .bg-text{
-    width: 100%;
+  .row-menu .column-menu {
     float: none;
+    width: 100%;
+    position: relative;
+    margin: 10px 0;
   }
-}
+
+@media screen and (max-width: 600px) {
+  #menu-articoli {
+    right: 0;
+  }
+
+@media screen and (max-width: 600px) {
+  #menu-autori {
+    left: 0;
+  }
 
 /*Footer*/
 
@@ -310,4 +313,5 @@ ul {
   text-shadow: 0 0 5px #ffffff;
 
 }
+
 
