@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @media screen and (max-width: 600px) {
   body {
     width: 100%;
@@ -15,11 +19,16 @@ body {
   margin: 0;
   background-position: top;
   font-family: 'Syne';
-  font-size: 22px;
+  font-size: clamp(18px, 2vw, 22px);
 }
 
 header {
-  background-color: rgb(255, 255, 204, 0.7);
+  background-color: rgba(255, 255, 204, 0.7);
+}
+
+header h1 {
+  letter-spacing: 5px;
+  font-weight: bold;
 }
 
 /*Bottone per tornare su*/
@@ -37,10 +46,27 @@ header {
   border-radius: 10px; /* Rounded corners */
   font-size: 20px; /* Increase font size */
   border-color: #a62a26;
+
+  transition: 
+    transform 0.3s ease,
+    letter-spacing 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
 #myBtn:hover {
   text-shadow: 0 0 5px #ffffff;
+}
+
+#myBtn.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#myBtn.hide {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
 /* Header */
@@ -66,6 +92,7 @@ header h1 {
   position: sticky;
   top: 0;
   z-index: 999;
+  transition: transform 0.3s ease;
 }
 
 .topnav a {
@@ -76,17 +103,25 @@ header h1 {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease,
+    transform 0.3s ease,
+    letter-spacing 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
 .topnav a:hover {
   background-color: #ffffcc;
   color: black;
-  transition: top 0.3s ease;
 }
+
 
 .topnav a.active {
   background-color: #a62a26;
   color: white;
+  font-weight: bold;
 }
 
 .topnav .search-container {
@@ -113,9 +148,19 @@ header h1 {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+
+  transition: 
+    transform 0.3s ease,
+    letter-spacing 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
-.topnav .search-container button:hover {
+#tendina:hover {
+  background-color: #871e1d;
+  color: #ffffcc;
+}
+
+.topnav .search-container button .topnav i:hover {
   text-shadow: 0 0 5px #ffffff;
 
 }
@@ -138,12 +183,48 @@ header h1 {
   }
 }
 
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child):not(.icon) {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+    font-size: 20px;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;
+  }
+  
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
 /*Articoli*/
 .menu {
   height: fit-content;
   margin: auto;
   padding: 70px;
-  background-color: rgb(255, 255, 204, 0.8);
+  background-color: rgba(255, 255, 204, 0.8);
 
 }
 
@@ -159,7 +240,11 @@ header h1 {
   justify-content: center; /* Centra orizzontalmente il contenuto */
   text-align: center;
   height: 300px;
+  transition: transform 0.4s ease;
+}
 
+.column-menu:hover {
+  transform: scale(1.03);
 }
 
 /* Clear floats after the columns */
@@ -222,6 +307,13 @@ header h1 {
   flex-direction: column; /* Add this */
 }
 
+.column-menu h2 {
+  transition: 
+    transform 0.3s ease,
+    letter-spacing 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
 .bg-text {
   border: 3px solid #f1f1f1;
   position: absolute;
@@ -233,6 +325,8 @@ header h1 {
   padding: 20px;
   text-align: center;
   color: #ffffcc;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 
 /*Quando passo sopra col mouse ai link delle colonne*/
@@ -253,16 +347,19 @@ header h1 {
     position: relative;
     margin: 20px 0;
   }
+}
 
 @media screen and (max-width: 600px) {
   #menu-articoli {
     right: 0;
   }
+}
 
 @media screen and (max-width: 600px) {
   #menu-autori {
     left: 0;
   }
+}
 
 /*Footer*/
 
@@ -271,9 +368,11 @@ footer {
   color: #ffffcc;
 }
 
-.column {
+.column-footer {
   float: left;
   width: 33.33%;
+  margin: 10px 0;
+  padding: 0 3px;
 }
 
 ul {
@@ -281,7 +380,7 @@ ul {
 }
 
 /* Clear floats after the columns */
-.row:after {
+.row-footer:after {
   content: "";
   display: table;
   clear: both;
@@ -289,7 +388,7 @@ ul {
 
 /* Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .column {
+  .column-footer {
     width: 100%;
   }
 }
@@ -305,11 +404,16 @@ ul {
   text-align: center;
   text-decoration: none;
   background: none;
-  color: background-color: #871e1d;
   color: #ffffcc;
+
+  transition: 
+    transform 0.3s ease,
+    letter-spacing 0.3s ease,
+    text-shadow 0.3s ease;
 }
 
 /* Add a hover effect if you want */
 .fa:hover {
   color: #ffffcc;
   text-shadow: 0 0 5px #ffffff;
+}
