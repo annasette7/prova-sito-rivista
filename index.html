@@ -15,17 +15,16 @@
 	</head>
 	<body>
 
-		<button onclick="topFunction()" id="myBtn" title="Go to top">&#11180;</button>
+		<button onclick="topFunction()" id="myBtn" title="Go to top">&#129033;</button>
 
 		<!--Header-->
-		<div>
-			<header>
-				<h1><b>implicazioni</b></h1>
-			</header>
-		</div>
+		<header>
+			<h1>implicazioni</h1>
+		</header>
 
 		<!--Navbar-->
-		<div class="topnav">
+		<nav class="topnav">
+
 			<a class="active" href="#home">Home</a>
 			<a href="#articoli">Articoli</a>
 			<a href="#collezioni">Collezioni</a>
@@ -34,39 +33,48 @@
 					<input type="text" placeholder="Cerca.." name="search">
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
+			<a href="javascript:void(0);" id="tendina" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i>
+			</a>
 			</div>
-		</div>
+
+		</nav>
 
 		<div class="articoli">
 			immagine fissa
 		</div>
 
 		<div class="menu">
+
 			<div class="row-menu">
+
   				<div class="column-menu" id="menu-articoli">
   					<div class="bg-text">
   						<a href="#articoli" class="sezione-articoli">
-  						<h2>articoli</h2>
+  						<h2>ARTICOLI</h2>
   						</a>
-  						<p>And I'm a Photographer</p>
+  						<p>Leggi </p>
   					</div>
   				</div>
+
   				<div class="column-menu" id="menu-collezioni">
   					<div class="bg-text">
 	  					<a href="#collezioni" class="sezione-collezioni">
-	  						<h2>collezioni</h2>
+	  						<h2><b>COLLEZIONI</b></h2>
 	  					</a>
-  						<p>And I'm a Photographer</p>
+  						<p>Approfondisci la tua conoscenza per argomenti tematici!</p>
   					</div>
   				</div>
+
   				<div class="column-menu" id="menu-autori">
   					<div class="bg-text">
 						<a href="#autori" class="sezione-autori">
-							<h2>autori</h2>
+							<h2>AUTORI</h2>
 						</a>
-						<p>And I'm a Photographer</p>
+						<p>Scopri chi scrive per <i>implicazioni</i></p>
 					</div>
   				</div>
+
 			</div>
 		</div>
 
@@ -77,10 +85,13 @@
 		<footer>
 
 			<div class="row-footer">
-				<div class="column">
+
+				<div class="column-footer">
 					<h2>Chi siamo</h2>
+					<p></p>
 				</div>
-				<div class="column">
+
+				<div class="column-footer">
 					<h2>Sezioni utili</h2>
 					<ul>
 						<li>Informativa sulla privacy</li>
@@ -88,16 +99,18 @@
 						<li></li>
 					</ul>
 				</div>
-				<div class="column">
+
+				<div class="column-footer">
 					<h2>Collabora con noi!</h2>
 					<p>Vuoi pubblicare un articolo per <i>implicazioni</i> ? Manda un'e-mail a (indirizzo email) con un breve abstract, cinque parole chiave e il tema dell'argomento. Ti risponderemo presto!</p>
 				</div>
+
 			</div>
 
 			<hr>
 
-			<div class=riga-finale>
-				<p>&copy;Copyright <i>Anna Sette</i> 2026</p>
+			<div class="riga-finale">
+				<p>&copy; Copyright Anna Sette 2026</p>
 
 				<!--Sezione per social-->
 				<div class="social" id="contatti">
