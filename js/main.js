@@ -1,32 +1,41 @@
-/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("topnav").style.top = "0";
+// Elementi
+const navbar = document.getElementById("topnav");
+const mybutton = document.getElementById("myBtn");
+
+let prevScrollPos = window.pageYOffset;
+
+// SCROLL
+window.addEventListener("scroll", () => {
+  const currentScrollPos = window.pageYOffset;
+
+  // Navbar: su = mostra, giù = nascondi
+  if (prevScrollPos > currentScrollPos) {
+    navbar.style.transform = "translateY(0)";
   } else {
-    document.getElementById("topnav").style.top = "-50px";
+    navbar.style.transform = "translateY(-100%)";
   }
-  prevScrollpos = currentScrollPos;
-}
 
-/*Bottone per tornare su*/
-// Get the button:
-let mybutton = document.getElementById("myBtn");
+  prevScrollPos = currentScrollPos;
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+  // Bottone "torna su"
+  if (currentScrollPos > 20) {
+    mybutton.classList.add("show");
+    mybutton.classList.remove("hide");
   } else {
-    mybutton.style.display = "none";
+    mybutton.classList.add("hide");
+    mybutton.classList.remove("show");
   }
-}
+});
 
-// When the user clicks on the button, scroll to the top of the document
+// TORNA SU
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+// MENU MOBILE
+function myFunction() {
+  navbar.classList.toggle("responsive");
 }
